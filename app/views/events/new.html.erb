@@ -1,0 +1,17 @@
+<div style="text-align: center;">
+
+<h1>Vous Pouvez Faire Ici Votre Proposition D'Evénement</h1><br>
+
+<form action= <%= events_path %> method="POST">
+    <h2>Titre de l'Evenement</h2>   <input type="text" name="title"><br><br>
+    <h3>Description</h3>            <input type="text" name="description"><br><br>
+    <h4>Lieu</h4>                   <input type="text" name="location"><br><br>
+    <h5>Prix</h5>                   <input type="text" name="price"><br><br>
+    <h6>Date de début</h6>          <input type="text" name="start_date"><br><br>
+    <h6>Durée</h6>                  <input type="text" name="duration"><br><br>
+  <input type="submit" value="Envoyer le formulaire">
+</form>
+
+
+</div>
+
