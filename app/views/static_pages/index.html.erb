@@ -1,0 +1,16 @@
+<div style="text-align: center;">
+
+    <br><br><h1>Page d'accueil - Evenement By Mat</h1>
+    <br><br><h3>Voici la liste des événements à venir</h3><br><br>
+</div>    
+
+<body>
+    <div class="event" style="text-align: center;">
+        <% @event.each do |event| %>
+            <h5><br><%= event.title %>, à <%= event.location %> le <%= event.start_date %><br></h5>
+        <% end %>
+    </div>
+</body>    
+
+
+
