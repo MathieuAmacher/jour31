@@ -1,2 +1,27 @@
-<h1>@event = Event.find(params[:id])</h1>
-<p>Find me in app/views/events/show.html.erb</p>
+<div style="text-align: center;">
+
+
+    <%# <%= @event = Event.find(params[:id]) %>
+
+    <h1><big><%= @event.title %><big><br></h1>
+    <%= @event.description %><br><br>
+    <h5> Lieu de l'événement : </h5><%= @event.location %><br><br>
+    <h5> Prix : </h5><%= @event.price %><br><br>
+    <h5> Date : </h5><%= @event.start_date %><br><br>
+    <h5> Durée : </h5><%= @event.duration %><br><br>
+
+    <div class ="btn-group">
+    <p><a class="btn btn-success" href="<%= events_path %>" role="button">Revenir A La Page des Evénements</a></p>
+
+    <% if user_signed_in? %>
+    <%= button_to "Passer commande (NEXT GEN)", checkout_create_path(total: 100), class: "btn btn-warning", data: {turbo: false} %>
+    <% end %>
+    </div>
+    
+
+
+
+
+
+
+</div>
