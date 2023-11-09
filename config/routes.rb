@@ -7,6 +7,10 @@ Rails.application.routes.draw do
 
   resources :devise
   resources :events
+  
+  resources:events, only: [:show] do
+    resources :avatars, only: [:create]
+  end
 
   scope '/checkout' do
     post 'create', to: 'checkout#create', as: 'checkout_create'

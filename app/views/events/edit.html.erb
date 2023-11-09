@@ -1,2 +1,29 @@
-<h1>Events#edit</h1>
-<p>Find me in app/views/events/edit.html.erb</p>
+
+
+    <h1><big><%= @event.title %><big><br></h1>
+    <%= @event.description %><br><br>
+    <h5> Lieu de l'événement : </h5><%= @event.location %><br><br>
+    <h5> Prix : </h5><%= @event.price %><br><br>
+    <h5> Date : </h5><%= @event.start_date %><br><br>
+    <h5> Durée : </h5><%= @event.duration %><br><br>
+
+    <div class ="btn-group">
+    <p><a class="btn btn-success" href="<%= events_path %>" role="button">Revenir A La Page des Evénements</a></p>
+
+
+
+<h3>Avatar actuel</h3>
+
+
+<%if @event.avatar.attached?%>
+  <%= image_tag @event.avatar, alt: 'avatar' %>
+<%else%>
+  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+<%end%>
+
+
+
+<%= form_tag event_avatars_path(@event), multipart: true do %>
+  <%= file_field_tag :avatar %>
+  <%= submit_tag "mettre à jour" %>
+<% end %>

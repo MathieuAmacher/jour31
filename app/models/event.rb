@@ -1,5 +1,5 @@
 class Event < ApplicationRecord
-    class Event < ApplicationRecord
+
         validates :start_date, comparison: { greater_than: Time.now}
         validates :duration, numericality: { only_integer: true, greater_than: 0, inclusion: [5, 10, 15, 20, 25, 30, 60, 90, 120] }                                         #il me manque le multiple de 5
         validates :title, length: { in: 5..140 }
@@ -12,6 +12,6 @@ class Event < ApplicationRecord
         has_many :users, through: :participations
         has_one_attached :avatar
     
-    end
+
     
 end
