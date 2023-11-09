@@ -14,8 +14,9 @@ class EventsController < ApplicationController
   end
 
   def create
-    event = Event.create(start_date: params['start_date'], duration: params['duration'], title: params['title'], description: params['description'], price: params['price'], location: params['location'])
-    redirect_to "event_path"
+    @event = Event.create(start_date: params['start_date'], duration: params['duration'], title: params['title'], description: params['description'], price: params['price'], location: params['location'])
+    @event.avatar.attach(params[:avatar])
+    redirect_to "events"
   end
 
   def edit
@@ -29,7 +30,15 @@ class EventsController < ApplicationController
 
   def destroy
     @event = Event.find(params[:id])
+
     @event.destroy
     redirect_to "/"
   end
+
+  private
+
+  def event_params
+    params.require(:event).permit(:avatar)
+  end
+
 end
